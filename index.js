@@ -65,8 +65,14 @@ async function fetchWordleWord(date) {
 async function loadExistingWords() {
     try {
         const data = await fs.readFile(WORDS_FILE, 'utf-8');
-        return JSON.parse(data);
+        const parsedData = JSON.parse(data);
+        // Ensure the data has the correct structure
+        if (!parsedData.words || !Array.isArray(parsedData.words)) {
+            return { words: [] };
+        }
+        return parsedData;
     } catch (error) {
+        // If file doesn't exist or can't be read, return empty structure
         return { words: [] };
     }
 }
@@ -92,25 +98,39 @@ async function updateWordleWords() {
         currentDate.add(1, 'day');
     }
     
+    if (dates.length > 0) {
+        console.log(`Found ${dates.length} missing dates to fetch...`);
+    }
+    
     // Fetch new words
     const newWords = [];
+    let processedCount = 0;
     for (const date of dates) {
         const wordData = await fetchWordleWord(date);
         if (wordData) {
             newWords.push(wordData);
-            console.log(`Fetched word for ${wordData.date}: ${wordData.solution}`);
+            processedCount++;
+            if (processedCount % 10 === 0) {
+                console.log(`Progress: ${processedCount}/${dates.length} words fetched`);
+            }
             // Add a small delay to avoid rate limiting
             await new Promise(resolve => setTimeout(resolve, 1000));
         }
     }
     
-    // Combine existing and new words, sort by date
-    wordleData.words = [...wordleData.words, ...newWords]
-        .sort((a, b) => moment(a.date).diff(moment(b.date)));
-    
-    // Save updated words
-    await fs.writeFile(WORDS_FILE, JSON.stringify(wordleData, null, 2));
-    console.log('Words updated successfully!');
+    if (newWords.length > 0) {
+        console.log(`Successfully fetched ${newWords.length} new words!`);
+        
+        // Combine existing and new words, sort by date
+        wordleData.words = [...wordleData.words, ...newWords]
+            .sort((a, b) => moment(a.date).diff(moment(b.date)));
+        
+        // Save updated words
+        await fs.writeFile(WORDS_FILE, JSON.stringify(wordleData, null, 2));
+        console.log('Words file updated successfully!');
+    } else {
+        console.log('No new words to fetch. Database is up to date!');
+    }
 }
 
 async function fetchTodaysWord() {
@@ -140,6 +160,13 @@ async function startPeriodicUpdates() {
     
     // Then check for today's word
     await fetchTodaysWord();
+
+    // Check if running in GitHub Actions
+    if (process.env.GITHUB_ACTIONS) {
+        console.log('Running in GitHub Actions - exiting after completion');
+        process.exit(0);
+        return;
+    }
 
     let countdownInterval;
 
