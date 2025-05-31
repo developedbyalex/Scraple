@@ -22,11 +22,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
         
-      - name: Modify script for single run
-        run: |
-          sed -i 's/setInterval(performCheck, CHECK_INTERVAL);//' index.js
-          sed -i 's/startCountdown(nextCheckTime);//' index.js
-          
       - name: Run Wordle scraper
         run: node index.js
         

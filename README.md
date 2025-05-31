@@ -70,7 +70,3 @@ The words are stored in `wordle-words.json` with the following structure:
 - Network errors are handled gracefully
 - Failed requests will be retried on the next check
 - The script continues running even if individual requests fail
-
-## License
-
-ISC 
