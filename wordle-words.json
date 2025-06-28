@@ -5879,6 +5879,10 @@
     {
       "date": "2025-06-27",
       "solution": "plain"
+    },
+    {
+      "date": "2025-06-28",
+      "solution": "stump"
     }
   ]
 }
