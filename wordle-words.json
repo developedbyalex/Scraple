@@ -6095,6 +6095,10 @@
     {
       "date": "2025-08-20",
       "solution": "llama"
+    },
+    {
+      "date": "2025-08-21",
+      "solution": "extol"
     }
   ]
 }
