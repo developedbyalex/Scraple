@@ -6107,6 +6107,10 @@
     {
       "date": "2025-08-23",
       "solution": "union"
+    },
+    {
+      "date": "2025-08-24",
+      "solution": "spore"
     }
   ]
 }
