@@ -6503,6 +6503,10 @@
     {
       "date": "2025-11-30",
       "solution": "muggy"
+    },
+    {
+      "date": "2025-12-01",
+      "solution": "leach"
     }
   ]
 }
