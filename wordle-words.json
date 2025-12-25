@@ -6599,6 +6599,10 @@
     {
       "date": "2025-12-24",
       "solution": "spool"
+    },
+    {
+      "date": "2025-12-25",
+      "solution": "prism"
     }
   ]
 }
