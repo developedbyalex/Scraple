@@ -6743,6 +6743,10 @@
     {
       "date": "2026-01-29",
       "solution": "flaky"
+    },
+    {
+      "date": "2026-01-30",
+      "solution": "jumbo"
     }
   ]
 }
