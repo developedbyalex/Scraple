@@ -7011,6 +7011,10 @@
     {
       "date": "2026-04-06",
       "solution": "sworn"
+    },
+    {
+      "date": "2026-04-07",
+      "solution": "dense"
     }
   ]
 }
