@@ -7123,6 +7123,10 @@
     {
       "date": "2026-05-04",
       "solution": "riser"
+    },
+    {
+      "date": "2026-05-05",
+      "solution": "latch"
     }
   ]
 }
