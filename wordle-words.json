@@ -7239,6 +7239,10 @@
     {
       "date": "2026-06-02",
       "solution": "basis"
+    },
+    {
+      "date": "2026-06-03",
+      "solution": "notch"
     }
   ]
 }
