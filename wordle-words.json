@@ -7339,6 +7339,10 @@
     {
       "date": "2026-06-27",
       "solution": "scoop"
+    },
+    {
+      "date": "2026-06-28",
+      "solution": "emcee"
     }
   ]
 }
