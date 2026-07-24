@@ -7443,6 +7443,10 @@
     {
       "date": "2026-07-23",
       "solution": "orbit"
+    },
+    {
+      "date": "2026-07-24",
+      "solution": "putty"
     }
   ]
 }
