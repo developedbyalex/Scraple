@@ -7583,6 +7583,10 @@
     {
       "date": "2026-08-27",
       "solution": "uncut"
+    },
+    {
+      "date": "2026-08-28",
+      "solution": "tween"
     }
   ]
 }
