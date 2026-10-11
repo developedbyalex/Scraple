@@ -7759,6 +7759,10 @@
     {
       "date": "2026-10-10",
       "solution": "bumpy"
+    },
+    {
+      "date": "2026-10-11",
+      "solution": "uncap"
     }
   ]
 }
